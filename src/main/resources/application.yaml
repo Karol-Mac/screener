@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: screener
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: stock_screener
+
+
+
+fmp:
+    api:
+      key: ${FMP_API_KEY}
+      base-url: https://financialmodelingprep.com/stable
+
+
+
+logging:
+  level:
+    com:
+      example:
+            stockscreener: INFO
+    org:
+      springframework:
+                data:
+                  mongodb: INFO

@@ -7,12 +7,17 @@ spring:
       host: localhost
       port: 27017
       database: stock_screener
+  shell:
+    interactive:
+      enabled: true
+#    script:
+#      enabled: true
 
 
 
 fmp:
     api:
-      key: ${FMP_API_KEY}
+      apiKey: jJRhiQp3yj4GsLa7dYNsGC36VUbm3IYV
       base-url: https://financialmodelingprep.com/stable
 
 

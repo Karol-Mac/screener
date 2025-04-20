@@ -15,10 +15,10 @@ spring:
 
 
 
-fmp:
-    api:
-      apiKey: jJRhiQp3yj4GsLa7dYNsGC36VUbm3IYV
-      base-url: https://financialmodelingprep.com/stable
+yahoofinance:
+  api:
+    apiKey: ${YHFINANCE_API_KEY}
+    base-url: https://yfapi.net
 
 
 

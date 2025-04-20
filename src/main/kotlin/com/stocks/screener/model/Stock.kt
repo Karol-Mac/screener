@@ -2,61 +2,30 @@ package com.stocks.screener.model
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import java.math.BigDecimal
-import java.time.LocalDate
-
 
 @Document("stocks")
 data class Stock(
     @Id
     val symbol: String,
 
-    val price: PriceData,
-    val priceTarget: PriceTarget,
-    val indicators: Indicators,
-    val analytics: Analytics,
-    val stats: Stats,
+    val marketCap: Long,
+    val ebitda: Long,
+    val currentPrice: Double,
+    val average50Price: Double,
+    val average200price: Double,
+    val peRatio: Double,
+    val pegRatio: Double,
+    val priceTarget: Double,
+    val eps: Double,
+    val revenue: Long,
+    val peForward: Double,
+    val evToEbitda: Double,
+    val yearLow: Double,
+    val yearHigh: Double,
 
-    val marketCap: BigDecimal,
 
-    val updatedAt: LocalDate = LocalDate.now(),
-) {
-    data class PriceData(
-        val current: BigDecimal,
-        val average50: BigDecimal,
-        val average200: BigDecimal
-    )
-
-    data class PriceTarget(
-        val high: BigDecimal,
-        val low: BigDecimal,
-        val consensus: BigDecimal,
-        val median: BigDecimal,
-        val upside: BigDecimal  // calculated (consensus - current) / current * 100
-    )
-
-    data class Indicators(
-        val pe: BigDecimal,
-        val eps: BigDecimal,
-        val debtToEquity: BigDecimal,
-        val ev: BigDecimal,
-        val ebitda: BigDecimal,
-        val psForward: BigDecimal
-    )
-
-    data class Analytics(
-        val consensus: String, // "Buy", "Hold", etc.
-        val strongBuy: Int,
-        val buy: Int,
-        val hold: Int,
-        val sell: Int,
-        val strongSell: Int
-    )
-    
-    data class Stats (
-        val dayLow: BigDecimal,
-        val dayHigh: BigDecimal,
-        val yearLow: BigDecimal,
-        val yearHigh: BigDecimal,
-    )
-}
+    val ev: Long,               //ev = evToEbitda * ebitda
+    val upside: Double,         // upside = (priceTarget - currentPrice) / currentPrice * 100
+    val psForward: Double,      // psForward = marketCap (aktualne) / revenueAVG (przyszły rok)
+    val analysis: Analysis,
+)

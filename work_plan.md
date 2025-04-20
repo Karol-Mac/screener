@@ -4,16 +4,14 @@
 Utworzenie projektu Kotlin + Spring Boot + MongoDB
  
 
-- []Etap 2: Model + Repozytoria 
-Stock, StockRepository
-  - zaimplementuj potrzebne medody
-StockSnapshot, StockSnapshotRepository
-  - zaimplementuj potrzebne metody
+- []Etap 2: Model + Repozytoria
+    - klasa encji
+    - utwórz odpowiednie klasy DTO do przetwarzania danych
+
 
 - []Etap 3: Komunikacja z API
-  - nawiąż połaczenie z API FMP - HTTP interface
+  - nawiąż połaczenie z API YHFinance - HTTP interface
     - wyświetl dane (JSON)
-    - utwórz odpowiednie klasy DTO do przetwarzania danych
 
 - []Etap 4: Service + logika biznesowa
   - modelowanie danych - obliczanie PS Forward, upside itd

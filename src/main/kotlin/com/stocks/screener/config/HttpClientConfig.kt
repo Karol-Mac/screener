@@ -1,7 +1,7 @@
 package com.stocks.screener.config
 
-import com.stocks.screener.client.FmpQuoteClient
-import com.stocks.screener.properties.FmpApiProperties
+import com.stocks.screener.client.YahooFinanceClient
+import com.stocks.screener.properties.YahooFinanceApiProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.client.RestClient
@@ -10,19 +10,19 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 
 @Configuration
 class HttpClientConfig(
-    private val fmpApiProperties: FmpApiProperties
+    private val yahooFinanceApiProperties: YahooFinanceApiProperties
 ) {
 
     @Bean
-    fun fmpQuoteClient(): FmpQuoteClient {
+    fun fmpQuoteClient(): YahooFinanceClient {
         val client = RestClient.builder()
-            .baseUrl(fmpApiProperties.baseUrl)
+            .baseUrl(yahooFinanceApiProperties.baseUrl)
             .build()
 
         val factory = HttpServiceProxyFactory
             .builderFor(RestClientAdapter.create(client))
             .build()
 
-        return factory.createClient(FmpQuoteClient::class.java)
+        return factory.createClient(YahooFinanceClient::class.java)
     }
 }
